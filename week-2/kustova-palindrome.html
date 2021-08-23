@@ -107,6 +107,7 @@ Description: The Palindrome App.
           document.getElementById("result-title").innerHTML = "Error";
           document.getElementById("assign-results-header").innerHTML =
             "Please enter only valid characters: lowercase or uppercase English letters, numbers, spaces, and punctuation characters: ! ? . , ; : \/ \\ ' \" ( ) - _. Note that punctuation characters and spaces are ignored when determining the result.";
+          document.getElementById("assign-results").innerHTML = "";
         } else {
           let originalPhrase = createOriginalString(arrPhrase);
           let reversedPhrase = createReversedString(arrPhrase);
