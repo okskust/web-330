@@ -104,8 +104,8 @@ Description: The Palindrome App.
         // Check if a selected value is valid. If it is not valid report an error. If it is valid check if a string is a palindrome and output the result.
         let arrPhrase = isValid(txtPhrase);
         if (!arrPhrase) {
-          document.getElementById("result-title").textContent = "Error";
-          document.getElementById("result").textContent =
+          document.getElementById("result-title").innerHTML = "Error";
+          document.getElementById("result").innerHTML =
             "Please enter only valid characters: lowercase or uppercase English letters, numbers, spaces, and punctuation characters: ! ? . , ; : \/ \\ ' \" ( ) - _. Note that punctuation characters and spaces are ignored when determining the result.";
         } else {
           let originalPhrase = createOriginalString(arrPhrase);
@@ -114,7 +114,7 @@ Description: The Palindrome App.
           let today = getTodayDate();
           let len = originalPhrase.length;
           let header = `Date: ${today}<br/>OriginalPhrase: ${originalPhrase}<br/>Reversed Phrase: ${reversedPhrase}<br/>Phrase Length: ${len}`;
-          document.getElementById("result-title").textContent =
+          document.getElementById("result-title").innerHTML =
             "Palindrome Results";
           document.getElementById("assign-results-header").innerHTML = header;
           document.getElementById("assign-results").innerHTML = checkingResult;
