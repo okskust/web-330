@@ -105,7 +105,7 @@ Description: The Palindrome App.
         let arrPhrase = isValid(txtPhrase);
         if (!arrPhrase) {
           document.getElementById("result-title").innerHTML = "Error";
-          document.getElementById("result").innerHTML =
+          document.getElementById("assign-results-header").innerHTML =
             "Please enter only valid characters: lowercase or uppercase English letters, numbers, spaces, and punctuation characters: ! ? . , ; : \/ \\ ' \" ( ) - _. Note that punctuation characters and spaces are ignored when determining the result.";
         } else {
           let originalPhrase = createOriginalString(arrPhrase);
