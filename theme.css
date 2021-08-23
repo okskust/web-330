@@ -20,6 +20,7 @@ body.light-theme {
   --heading-border-color: #d6a800;
   --anchor-hover-color: #4f3674;
   --anchor-hover-background-color: #d6a800;
+  --anchor-visited-color: #3c275a;
   --card-background-color: #fff;
   --card-title-color: #4f3674;
   --btn-background-color: #4f3674;
@@ -27,6 +28,7 @@ body.light-theme {
   --btn-hover-background-color: #d6a800;
   --btn-hover-color: #4f3674;
   --input-border-color: #ccc;
+  
 }
 
 /** Variables for dark theme */
@@ -42,6 +44,7 @@ body.dark-theme {
   --heading-border-color: #424242;
   --anchor-hover-color: #d176e1;
   --anchor-hover-background-color: #303030;
+  --anchor-visited-color: #bb9de4;
   --card-background-color: #424242;
   --card-title-color: #d176e1;
   --btn-background-color: #d176e1;
@@ -49,6 +52,7 @@ body.dark-theme {
   --btn-hover-background-color: #2e2630;
   --btn-hover-color: #fff;
   --input-border-color: #303030;
+  
 }
 
 * {
@@ -155,4 +159,18 @@ h4 {
 }
 .form-field {
   padding: 20px;
+}
+
+.return-home {
+  color: var(--anchor-color);
+  text-decoration: none;
+}
+
+.return-home:hover {
+  background-color: var(--anchor-hover-background-color);
+  color: var(--anchor-hover-color);
+}
+
+.return-home:visited {
+  color: var(--anchor-visited-color);
 }

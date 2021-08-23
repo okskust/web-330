@@ -12,3 +12,10 @@ function setDefaultTheme()
     document.getElementById("icon-text").innerHTML = iconText;
 }
 
+/**
+ * Set the HTML body to the user's selected theme. If one has not been selected, set the theme to light-theme
+ */
+function setSelectedTheme()
+{
+    document.body.classList.value = localStorage.getItem("mode") || "light-theme";
+}

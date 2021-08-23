@@ -36,6 +36,7 @@ Description: Styling for index.html file.
 
 .assign-container {
     padding: 10px;
+    margin-top: 30px;
 }
 
 .assign-content {
@@ -56,19 +57,7 @@ Description: Styling for index.html file.
     background-color: inherit;
 }
 
-.return-home {
-    color: #4F3674;
-    text-decoration: none;
-}
 
-.return-home:hover {
-    background-color: #D6A800;
-    color: #4F3674;
-}
-
-.return-home:visited {
-    color: #3C275A;
-}
 
 .form {
     display: inline-grid;
@@ -82,4 +71,7 @@ Description: Styling for index.html file.
 .full-width {
     width: 100%;
 }
-
+.distinguish {
+    font-weight: bold;
+    text-decoration: underline;
+}
