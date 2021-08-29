@@ -1,0 +1,199 @@
+<!--
+============================================
+Title: restaurant.html
+Author: Oksana Kustova
+Date: 8/27/2021
+Description: The Restaurant App.
+===========================================
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>WEB 330 – Enterprise JavaScript II</title>
+    <link rel="stylesheet" href="../theme.css" type="text/css" />
+    <link rel="stylesheet" href="../site.css" type="text/css" />
+    <link rel="stylesheet" href="restaurant.css" type="text/css" />
+    <script src="../theme.js"></script>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="main-container">
+      <h1 class="app-header">Welcome to the Restaurant App!</h1>
+      <!-- Card with an input field. -->
+      <div class="card">
+        <div class="card-title">Restaurant Menu</div>
+        <div class="card-content">
+          <div id="category-cards" class="grid-container"></div>
+          <div class="form-field">
+            <button id="btnCalculate" class="btn btn-primary">
+              Place Order
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <a href="../index.html" class="return-home">Return</a>
+
+      <!-- Card with a result. -->
+      <div class="card assign-container" id="card-for-result">
+        <div class="card-title" id="result-title"></div>
+        <div id="assign-results" class="assign-results-text card-content"></div>
+      </div>
+    </div>
+
+    <!-- Calculate order summary and write a result into an HTML <div> element by id. -->
+    <script type="module">
+      import { Appetizer } from "./index.js";
+      import { Beverage } from "./index.js";
+      import { MainCourse } from "./index.js";
+      import { Dessert } from "./index.js";
+      import { Bill } from "./index.js";
+
+      // Set the HTML body to the user's selected theme. If one has not been selected, set the theme to light-theme
+      setSelectedTheme();
+
+      //Hide a card for the result/
+      document.getElementById("card-for-result").style.display = "none";
+
+      //Initial data
+      let menuItems = [
+        {
+          category: "Beverages",
+          id: "beverages",
+          items: [
+            { name: "Soda", price: 3.3 },
+            { name: "Sweet Tea", price: 3.3 },
+            { name: "Iced Coffee", price: 2.49 },
+            { name: "Bottled Water", price: 2.15 },
+          ],
+        },
+
+        {
+          category: "Appetizers",
+          id: "appetizers",
+          items: [
+            { name: "Nachos", price: 6.6 },
+            { name: "Chips and Salsa", price: 5.5 },
+            { name: "Pretzel with Cheese", price: 8.8 },
+            { name: "Fried Pickles", price: 8.25 },
+          ],
+        },
+        {
+          category: "Main Courses",
+          id: "mainCourses",
+          items: [
+            { name: "Street Tacos", price: 9.7 },
+            { name: "Boneless Wings", price: 12.8 },
+            { name: "Cheese Burger with Fries", price: 12.65 },
+            { name: "Chicken Wrap with Salad", price: 9.65 },
+          ],
+        },
+        {
+          category: "Desserts",
+          id: "desserts",
+          items: [
+            { name: "Ice Cream", price: 4.3 },
+            { name: "Chocolate Cake", price: 5.4 },
+            { name: "Apple Pie", price: 3.8 },
+          ],
+        },
+      ];
+      //Hide order summary if chosen items were changed
+      function resetSummary() {
+        document.getElementById("card-for-result").style.display = "none";
+      }
+      
+      //Write restaurant menu using initial data
+      function writeMenu(arr) {
+        for (let menuItem of arr) {
+          let cardsContainer = document.getElementById("category-cards");
+          let divCard = document.createElement("div");
+          divCard.className = "card";
+          cardsContainer.append(divCard);
+          let divCardTitle = document.createElement("div");
+          divCardTitle.className = "card-title";
+          divCardTitle.textContent = `${menuItem.category}`;
+          divCard.append(divCardTitle);
+          let divCardContent = document.createElement("div");
+          divCardContent.className = "card-content";
+          divCardContent.id = menuItem.id;
+          for (let item of menuItem.items) {
+            let inputCheckbox = document.createElement("input");
+            let labelCheckbox = document.createElement("label");
+            inputCheckbox.id = item.name;
+            inputCheckbox.setAttribute("type", "checkbox");
+            inputCheckbox.setAttribute("name", item.name);
+            inputCheckbox.setAttribute("value", item.price);
+            inputCheckbox.onchange = resetSummary;
+            labelCheckbox.setAttribute("for", item.name);
+            labelCheckbox.textContent = `${item.name} ($${item.price.toFixed(
+              2
+            )})`;
+            divCardContent.append(inputCheckbox);
+            divCardContent.append(labelCheckbox);
+            divCardContent.append(document.createElement("br"));
+          }
+
+          divCard.append(divCardContent);
+        }
+      }
+
+      writeMenu(menuItems);
+
+      //Calculate order summary by click on button
+      document.getElementById("btnCalculate").onclick = function () {
+        document.getElementById("card-for-result").style.display = "block";
+        document.getElementById("result-title").textContent = "Order Summary";
+        let bill = new Bill(menuItems);
+        for (let menuItem of menuItems) {
+          let menuEl = document.getElementById(menuItem.id);
+          let allCheckboxes = menuEl.getElementsByTagName("input");
+
+          //Add chosen items into arrays of class' elements
+          for (let oneCheckbox of allCheckboxes) {
+            if (oneCheckbox.checked) {
+              if (menuItem.id === "beverages") {
+                bill.addItem(
+                  new Beverage(oneCheckbox.name, oneCheckbox.value),
+                  menuItem.id
+                );
+              } else {
+                if (menuItem.id === "appetizers") {
+                  bill.addItem(
+                    new Appetizer(oneCheckbox.name, oneCheckbox.value),
+                    menuItem.id
+                  );
+                } else {
+                  if (menuItem.id === "mainCourses") {
+                    bill.addItem(
+                      new MainCourse(oneCheckbox.name, oneCheckbox.value),
+                      menuItem.id
+                    );
+                  } else {
+                    if (menuItem.id === "desserts") {
+                      bill.addItem(
+                        new Dessert(oneCheckbox.name, oneCheckbox.value),
+                        menuItem.id
+                      );
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        let summary = bill.getTotal();
+
+        document.getElementById(
+          "assign-results"
+        ).textContent = `Your order total is $${summary.toFixed(2)}`;
+      };
+    </script>
+  </body>
+</html>

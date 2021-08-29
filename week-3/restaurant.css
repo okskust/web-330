@@ -1,0 +1,17 @@
+/**
+============================================
+Title: restaurant.css
+Author: Oksana Kustova
+Date: 8/28/2021
+Description: Styling for kustova-restaurant.html file.
+===========================================
+*/
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-column-gap: 2.5%;
+}
+.form-field {
+  text-align: center;
+}
