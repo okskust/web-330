@@ -28,7 +28,11 @@ body.light-theme {
   --btn-hover-background-color: #d6a800;
   --btn-hover-color: #4f3674;
   --input-border-color: #ccc;
-  
+  --table-header-background-color: #4f3674;
+  --table-header-color: #fff;
+  --table-border-color: #ddd;
+  --table-hover-background-color: #d6a800;
+  --table-hover-color: #4f3674;
 }
 
 /** Variables for dark theme */
@@ -52,7 +56,11 @@ body.dark-theme {
   --btn-hover-background-color: #2e2630;
   --btn-hover-color: #fff;
   --input-border-color: #303030;
-  
+  --table-header-background-color: #d176e1;
+  --table-header-color: #fff;
+  --table-border-color: #303030;
+  --table-hover-background-color: #7d4787;
+  --table-hover-color: #fff;
 }
 
 * {
@@ -173,4 +181,30 @@ h4 {
 
 .return-home:visited {
   color: var(--anchor-visited-color);
+}
+
+table {
+  width: 95%;
+  margin: 0 auto;
+}
+table,
+th,
+td {
+  border-collapse: collapse;
+  border: 1px solid var(--table-border-color);
+  text-align: left;
+}
+
+th {
+  background-color: var(--table-header-background-color);
+  color: var(--table-header-color);
+}
+td,
+th {
+  padding: 12px;
+}
+tr:hover {
+  background-color: var(--table-hover-background-color);
+  color: var(--table-hover-color);
+  cursor: pointer;
 }

@@ -1,0 +1,18 @@
+/**
+============================================
+Title: kustova-calorie.css
+Author: Oksana Kustova
+Date: 9/5/2021
+Description: Styling for kustova-calorie.html file.
+===========================================
+*/
+#foodList {
+    text-align: right;
+    color: #df546a;
+    font-size: 12px;
+    letter-spacing: 2px;
+    font-style: italic;
+}
+.input {
+    width: 45%;
+}

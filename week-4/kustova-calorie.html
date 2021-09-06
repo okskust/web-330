@@ -1,0 +1,116 @@
+<!--
+============================================
+Title: kustova-calorie.html
+Author: Oksana Kustova
+Date: 9/5/2021
+Description: The Calorie App.
+===========================================
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>WEB 330 – Enterprise JavaScript II</title>
+    <link rel="stylesheet" href="../theme.css" type="text/css" />
+    <link rel="stylesheet" href="../site.css" type="text/css" />
+    <link rel="stylesheet" href="kustova-calorie.css" type="text/css" />
+    <script src="../theme.js"></script>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="main-container">
+      <h1 class="app-header">Welcome to the Calorie App!</h1>
+      <!-- Card with an input field. -->
+      <div class="card">
+        <div class="card-title">Calorie Search Form</div>
+        <div class="card-content max-width">
+          <div class="form-field">
+            <label for="txtFoodItem">Enter a food item or food items:</label>
+            <input type="text" class="input" id="txtFoodItem" name="foodItem" />
+            <div id="foodList"></div>
+          </div>
+          <div class="form-field">
+            <button id="btnSearch" class="btn btn-primary full-width">
+              Search
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <a href="../index.html" class="return-home">Return</a>
+
+      <!-- Card with a result. -->
+      <div class="card assign-container" id="card-for-result">
+        <div class="card-title" id="result-title"></div>
+        <div id="assign-results" class="assign-results-text card-content"></div>
+      </div>
+    </div>
+
+    <!-- Calculate order summary and write a result into an HTML <div> element by id. -->
+    <script type="module">
+      import { CalorieConverter } from "./calorie-converter.js";
+
+      // Set the HTML body to the user's selected theme. If one has not been selected, set the theme to light-theme
+      setSelectedTheme();
+
+      //Hide a card for the result/
+      document.getElementById("card-for-result").style.display = "none";
+
+      //Write a hint.
+      let foodListData = "(Ex.";
+      for (let item of CalorieConverter.data) {
+        foodListData = foodListData + " " + item.name + ",";
+      }
+      foodListData = foodListData.slice(0, -1) + ")";
+      document.getElementById("foodList").textContent = foodListData;
+
+      //Handler for keyup and click.
+      function writeResult() {
+        let txtFoodItem = document.getElementById("txtFoodItem").value;
+        document.getElementById("card-for-result").style.display = "none";
+
+        //Check if input is correct. If it is correct then create a result.
+        if (!txtFoodItem) {
+          alert("Please, enter a food name! See an example.");
+        } else {
+          let result = CalorieConverter.findChosen(txtFoodItem);
+          document.getElementById("card-for-result").style.display = "block";
+          document.getElementById("result-title").textContent =
+            "Search Results";
+          if (result.found.length === 0) {
+            document.getElementById("assign-results").innerHTML =
+              "Nothing was found from the entered list.<br />Enter food items separated by commas.";
+          } else {
+            let resultDiv = "<table><tr><th>Name</th><th>Calories</th></tr>";
+            for (let item of result.found) {
+              resultDiv =
+                resultDiv +
+                "<tr><td>" +
+                item.name +
+                "</td><td>" +
+                item.calories +
+                "</td></tr>";
+            }
+            if (result.notFound.length > 0) {
+              let stringNotFound = result.notFound.join(", ");
+              resultDiv =
+                resultDiv + "<div> Not found:" + stringNotFound + "</div>";
+            }
+            document.getElementById("assign-results").innerHTML = resultDiv;
+          }
+        }
+      }
+
+      //Write result.
+      document.getElementById("btnSearch").onclick = writeResult;
+      document.addEventListener("keyup", (event) => {
+        if (event.code === "Enter" || event.code === "NumpadEnter")
+          writeResult();
+      });
+    </script>
+  </body>
+</html>
