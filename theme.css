@@ -94,6 +94,9 @@ h4 {
   border: solid 1px var(--heading-border-color);
   padding: 10px;
 }
+#icon-cart {
+  color: var(--card-title-color);
+}
 
 .main-container {
   width: 600px;

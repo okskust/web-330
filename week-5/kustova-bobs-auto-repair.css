@@ -1,0 +1,25 @@
+/**
+============================================
+Title: kustova-bobs-auto-repair.css
+Author: Oksana Kustova
+Date: 9/5/2021
+Description: Styling for kustova-bobs-auto-repair.html.
+===========================================
+*/
+#cart-message {
+  text-align: left;
+  color: #df546a;
+  font-size: 12px;
+  letter-spacing: 2px;
+  font-style: italic;
+}
+#cartIcon,
+#cart-count {
+  cursor: pointer;
+}
+.place-for-cart {
+  display: block;
+  text-align: center;
+  padding-bottom: 0px;
+  font-size: 28px;
+}

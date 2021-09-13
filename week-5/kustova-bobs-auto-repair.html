@@ -1,0 +1,154 @@
+<!--
+============================================
+Title: kustova-bobs-auto-repair.html.html
+Author: Oksana Kustova
+Date: 9/12/2021
+Description: The Repair Shop App.
+===========================================
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>WEB 330 – Enterprise JavaScript II</title>
+    <link rel="stylesheet" href="../theme.css" type="text/css" />
+    <link rel="stylesheet" href="../site.css" type="text/css" />
+    <link
+      rel="stylesheet"
+      href="kustova-bobs-auto-repair.css"
+      type="text/css"
+    />
+    <script src="../theme.js"></script>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <body>
+    <div class="main-container">
+      <h1 class="app-header">Welcome to Bob's Automotive Repair Shop!</h1>
+      <!-- Card with an select field. -->
+      <div class="card">
+        <div class="card-title">Product Listing</div>
+        <div class="place-for-cart">
+          <cart-component></cart-component>
+        </div>
+        <div class="card-content max-width">
+          <div class="form-field">
+            <label for="productList">Choose a product:</label>
+            <select class="drop-down-menu" id="productList" name="products">
+              <option value="Select">--Select--</option>
+              <option value="19.99">Oil Change</option>
+              <option value="18.44">Filter Replacement</option>
+              <option value="9.99">Wiper Fluid Refill</option>
+            </select>
+            <div id="cart-message">
+              To view your shopping cart click on the cart icon
+            </div>
+          </div>
+          <div class="form-field">
+            <button id="btnAddProduct" class="btn btn-primary full-width">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <a href="../index.html" class="return-home">Return</a>
+
+      <!-- Card with a result. -->
+      <div class="card assign-container" id="card-for-result">
+        <div class="card-title" id="result-title"></div>
+        <div id="assign-results" class="assign-results-text card-content"></div>
+      </div>
+    </div>
+
+    <!-- Calculate order summary and write a result into an HTML <div> element by id. -->
+    <script type="module">
+      import { Product } from "./product.js";
+      import { ShoppingCart } from "./shopping-cart.js";
+      import { CartComponent } from "./cart-component.js";
+      customElements.define("cart-component", CartComponent);
+      let shoppingCart = new ShoppingCart();
+
+      //Count amount in the cart.
+      function setCartCount() {
+        document.getElementById("cart-count").innerHTML = shoppingCart.count();
+      }
+      setCartCount();
+
+      // Set the HTML body to the user's selected theme. If one has not been selected, set the theme to light-theme
+      setSelectedTheme();
+
+      //Hide a card for the result/
+      document.getElementById("card-for-result").style.display = "none";
+
+      //Handler for click on the button.
+      function addProduct() {
+        let productList = document.getElementById("productList");
+        let product = productList.options[productList.selectedIndex].text;
+        let productValue = productList.options[productList.selectedIndex].value;
+        if (product === "--Select--") {
+          alert("Please choose a product!");
+        } else {
+          if (shoppingCart.count() == 0) {
+            let selectedProduct = new Product(product, productValue);
+            shoppingCart.add(selectedProduct);
+            setCartCount();
+            alert(`${product} was added in your shopping cart!`);
+          } else {
+            let flag = 0;
+            for (let item of shoppingCart.products) {             
+              if (item.name === product) {
+                alert(`${product} was already in your shopping cart!`);
+                flag = 1;
+                break;
+              } else {
+                flag = 0;
+              }
+            }
+            if (flag === 0) {
+              let selectedProduct = new Product(product, productValue);
+              shoppingCart.add(selectedProduct);
+              setCartCount();
+              alert(`${product} was added in your shopping cart!`);
+            }
+          }
+        }
+        productList.selectedIndex = 0;
+      }
+
+      //Handler for click on cart icon.
+      function writeResult() {
+        document.getElementById("card-for-result").style.display = "block";
+        let cart = shoppingCart.iterateArray();
+        let resultDiv =
+          "<table><tr><th>ID</th><th>Name</th><th>Price</th></tr>";
+        for (let item of cart) {
+          resultDiv =
+            resultDiv +
+            "<tr><td>" +
+            item.id +
+            "</td><td>" +
+            item.name +
+            "</td><td>" +
+            item.price +
+            "</td></tr>";
+        }
+
+        document.getElementById("assign-results").innerHTML = resultDiv;
+      }
+
+      //Add a product.
+      document.getElementById("btnAddProduct").onclick = addProduct;
+      //Show the cart.
+      document.getElementById("cartIcon").onclick = writeResult;
+      document.getElementById("cart-count").onclick = writeResult;
+    </script>
+  </body>
+</html>
