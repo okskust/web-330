@@ -1,0 +1,81 @@
+<!--
+============================================
+Title: index.html
+Author: Oksana Kustova
+Date: 8/12/2021
+Description: The landing page.
+===========================================
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Oksana Kustova | Web Developer</title>
+    <link rel="stylesheet" href="style.css" type="text/css" />
+    <style>
+      .grid1 {
+        display: grid;
+        grid-template-columns: 0fr 6fr 8fr 6fr;
+        grid-template-rows: auto auto auto auto auto auto auto;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="grid1">
+      <header-component-left class="item1"></header-component-left>
+      <header-component-right class="item5"></header-component-right>
+      <div class="item61">
+        <h2>About me</h2>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce id mattis
+        orci. Praesent finibus ipsum ipsum, ac congue mi suscipit in. Cras
+        volutpat nunc finibus sem finibus mollis. Cras scelerisque egestas neque
+        vel rhoncus. Praesent tempor ullamcorper massa, at varius erat tristique
+        a. Cras semper eros in consequat congue. Nullam commodo posuere nunc in
+        ullamcorper. Fusce accumsan ex quis tortor elementum tincidunt. Cras
+        accumsan ipsum ante, vel accumsan justo porta et. Nulla iaculis justo a
+        justo ultricies luctus. Nam porttitor dignissim finibus. Etiam at leo
+        sit amet nunc gravida luctus. Nunc lacus turpis, fringilla id lectus sit
+        amet, ornare efficitur massa. Interdum et malesuada fames ac ante ipsum
+        primis in faucibus. Fusce faucibus orci et sapien semper laoreet.
+        Quisque scelerisque nibh et consectetur suscipit.
+      </div>
+      <img
+        src="https://via.placeholder.com/360x360.png"
+        class="item62"
+        alt="My photo"
+      />
+      <img
+        src="https://via.placeholder.com/360x360.png"
+        class="item63"
+        alt="My photo"
+      />
+      <div class="item64">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut
+        euismod tellus. Vestibulum egestas erat nibh, vel bibendum tellus varius
+        eu. In hac habitasse platea dictumst. Proin imperdiet rutrum vestibulum.
+        Pellentesque habitant morbi tristique senectus et netus et malesuada
+        fames ac turpis egestas. Fusce maximus nisl ante, at condimentum augue
+        tempor quis. Duis at hendrerit nulla, non malesuada tortor. Phasellus
+        sed porta neque, a scelerisque leo. Maecenas fringilla augue erat.
+        Phasellus id dui metus. Sed vel molestie sem, id posuere nibh.Cras
+        accumsan ipsum ante, vel accumsan justo porta et. Nulla iaculis justo a
+        justo ultricies luctus. Nam porttitor dignissim finibus. Etiam at leo
+        sit amet nunc gravida luctus. Nunc lacus turpis, fringilla id lectus sit
+        amet, ornare efficitur massa. Interdum et malesuada fames ac ante ipsum
+        primis in faucibus. Fusce faucibus orci et sapien semper laoreet.
+        Quisque scelerisque nibh et consectetur suscipit.
+      </div>
+
+      <footer-component class="item4"></footer-component>
+    </div>
+    <script type="module">
+      import { Footer } from "./footer.js";
+      import { HeaderLeft } from "./header-left.js";
+      import { HeaderRight } from "./header-right.js";
+      customElements.define("header-component-left", HeaderLeft);
+      customElements.define("header-component-right", HeaderRight);
+      customElements.define("footer-component", Footer);
+    </script>
+  </body>
+</html>

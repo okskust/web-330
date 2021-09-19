@@ -1,0 +1,47 @@
+<!--
+============================================
+Title: index.html
+Author: Oksana Kustova
+Date: 8/12/2021
+Description: The landing page.
+===========================================
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Oksana Kustova | Web Developer</title>
+    <link rel="stylesheet" href="style.css" type="text/css" />
+  </head>
+  <body class = "main">
+    <div class="grid1">
+      <header-component-left class="item1"></header-component-left>
+      <header-component-right class="item5"></header-component-right>
+      <div class="item2">
+        <h3>My bucket list</h3>
+        <ul>
+          <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+          <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+          <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+          <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+          <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+          <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+          <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+          <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+        </ul>
+      </div>
+      <div class="item3">
+        Hi Everyone! My name is Oksana Kustova. I'm a Web Developer. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam convallis nisl nec urna egestas efficitur. Vestibulum suscipit risus orci, quis imperdiet leo consectetur eget. Nullam volutpat odio dui, ac bibendum risus eleifend eu. Nullam sollicitudin libero vel velit faucibus, sed interdum erat pharetra. Etiam faucibus auctor mi vel euismod. Nullam tristique nunc sit amet enim commodo, ut eleifend odio scelerisque. Curabitur iaculis imperdiet sapien, vitae pharetra tortor auctor nec.
+      </div>
+      <footer-component class="item4"></footer-component>
+    </div>
+    <script type="module">
+      import { FooterMain } from "./footer-main.js";
+      import { HeaderLeft } from "./header-left.js";
+      import { HeaderRight } from "./header-right.js";
+      customElements.define("header-component-left", HeaderLeft);
+      customElements.define("header-component-right", HeaderRight);
+      customElements.define("footer-component", FooterMain);
+    </script>
+  </body>
+</html>
