@@ -1,0 +1,22 @@
+/**
+============================================
+Title: kustova-bobs-auto-repair.css
+Author: Oksana Kustova
+Date: 9/18/2021
+Description: Styling for kustova-future-value.html.
+===========================================
+*/
+
+.danger {
+  float: right;
+  color: #df546a;
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+.form-label {
+  display: inline-block;
+  padding-top: 1rem;
+}
+.text-right {
+    text-align: right;
+}

@@ -1,0 +1,159 @@
+<!--
+============================================
+Title: kustova-future-value.html
+Author: Oksana Kustova
+Date: 9/18/2021
+Description: The Future Value App.
+===========================================
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>WEB 330 – Enterprise JavaScript II</title>
+    <link rel="stylesheet" href="../theme.css" type="text/css" />
+    <link rel="stylesheet" href="../site.css" type="text/css" />
+    <link rel="stylesheet" href="../flex-layout.css" type="text/css" />
+    <link rel="stylesheet" href="kustova-future-value.css" type="text/css" />
+    <script src="../theme.js"></script>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="main-container">
+      <h1 class="app-header">Welcome to the Future Value App!</h1>
+      <!-- Card with an select field. -->
+      <div class="card">
+        <div class="card-title">Future Value Calculator</div>
+        <div class="danger row col-12" id="errorLog"></div>
+        <div class="card-content col-8">
+          <div class="form-field row">
+            <label for="txtMonthlyPayment" class="col-5"
+              >Monthly Payment:</label
+            >
+            <input
+              type="text"
+              class="input col-7"
+              id="txtMonthlyPayment"
+              name="monthlyPayment"
+            />
+            <label for="txtYearlyRate" class="col-5">Interest Rate:</label>
+            <input
+              type="text"
+              class="input col-7"
+              id="txtYearlyRate"
+              name="yearlyRate"
+            />
+            <span class="danger col-12 text-right">
+              <i>Enter 11% as 11.1</i>
+            </span>
+            <label for="txtNumOfYears" class="col-5">Number of Years:</label>
+            <select
+              class="drop-down-menu col-7"
+              id="txtNumOfYears"
+              name="numOfYears"
+            >
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <button id="btnCalculate" class="btn btn-primary full-width">
+              Calculate
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <a href="../index.html" class="return-home">Return</a>
+
+      <!-- Card with a result. -->
+      <div class="card assign-container" id="card-for-result">
+        <div class="card-title" id="result-title"></div>
+
+        <div id="futureValue" class="assign-results-text card-content"></div>
+      </div>
+    </div>
+
+    <!-- Calculate order summary and write a result into an HTML <div> element by id. -->
+    <script type="module">
+      import { FinanceCalculator } from "./finance-calculator.js";
+      import { Validator } from "./validator.js";
+
+      // Set the HTML body to the user's selected theme. If one has not been selected, set the theme to light-theme
+      setSelectedTheme();
+
+      //Hide a card for the result/
+      document.getElementById("card-for-result").style.display = "none";
+
+      //Handler for click on the button.
+      function writeResult() {
+        document.getElementById("card-for-result").style.display = "none";
+        let monthlyPayment = document.getElementById("txtMonthlyPayment").value;
+        let rate = document.getElementById("txtYearlyRate").value;
+        let years = document.getElementById("txtNumOfYears").value;
+        let errorLogEl = document.getElementById("errorLog");
+        let monthlyPaymentValidator = new Validator(
+          "Monthly Payment",
+          monthlyPayment
+        );
+        monthlyPaymentValidator.addRequiredField();
+        monthlyPaymentValidator.addRequiredFloatField();
+        monthlyPaymentValidator.addRequiredFloatMinField(100);
+        let rateValidator = new Validator("Interest Rate", rate);
+        rateValidator.addRequiredField();
+        rateValidator.addRequiredFloatField();
+        rateValidator.addRequiredFloatMaxField(100);
+
+        let errorLog = [];
+        if (!monthlyPaymentValidator.validate()) {
+          for (let msg of monthlyPaymentValidator.messages) {
+            errorLog.push(msg);
+          }
+        }
+        if (!rateValidator.validate()) {
+          for (let msg of rateValidator.messages) {
+            errorLog.push(msg);
+          }
+        }
+        
+        let errorLogMessage;
+        if (monthlyPaymentValidator.validate() && rateValidator.validate()) {
+          let today = new Date().toLocaleDateString("en-US");
+          document.getElementById("result-title").innerHTML =
+            "Calculation as of " + today;
+          document.getElementById("card-for-result").style.display = "block";
+          errorLogEl.innerHTML = "";
+          let futureValue = FinanceCalculator.convertToCurrency(FinanceCalculator.calculateFutureValue(
+            monthlyPayment,
+            rate,
+            years
+          ));
+          document.getElementById("futureValue").innerHTML =
+            "The future value is " + futureValue;
+        } else {
+          errorLogEl.innerHTML = "";
+          errorLogMessage = "<ul>";
+          for (let msg of errorLog) {
+            errorLogMessage = errorLogMessage + "<li>" + msg + "</li>";
+          }
+          errorLogMessage = errorLogMessage + "</ul>";
+          errorLogEl.innerHTML = errorLogMessage;
+        }
+      }
+
+      document.getElementById("btnCalculate").onclick = writeResult;
+    </script>
+  </body>
+</html>
