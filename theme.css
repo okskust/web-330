@@ -188,7 +188,7 @@ h4 {
 
 table {
   width: 95%;
-  margin: 0 auto;
+  margin: 0 auto 20px;
 }
 table,
 th,
@@ -210,4 +210,7 @@ tr:hover {
   background-color: var(--table-hover-background-color);
   color: var(--table-hover-color);
   cursor: pointer;
+}
+#selectedBook {
+  text-align: left;
 }
