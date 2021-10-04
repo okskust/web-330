@@ -23,7 +23,7 @@ Description: The WhatABook Part2 App.
   </head>
   <body>
     <div class="main-container">
-      <h1 class="app-header">Welcome to the WhatABook, Part1 App!</h1>
+      <h1 class="app-header">Welcome to the WhatABook, Part2 App!</h1>
       <!-- Card with an select field. -->
       <div class="card">
         <div class="card-title">Book Listing</div>
@@ -49,6 +49,7 @@ Description: The WhatABook Part2 App.
       //Hide a card for the result/
       document.getElementById("card-for-result").style.display = "none";
 
+      //Shows a table of books.
       import { HttpClient } from "./http-client.js";
       let http = new HttpClient();
       const isbns = [
@@ -70,8 +71,8 @@ Description: The WhatABook Part2 App.
       http
         .get("https://openlibrary.org/api/books", params)
         .then((res) => {
-          console.log(res);
-          document.getElementById("bookListing").innerHTML = buildHtmlString(
+          //console.log(res);
+          document.getElementById("bookList").innerHTML = buildHtmlString(
             res,
             "table"
           );
@@ -81,12 +82,14 @@ Description: The WhatABook Part2 App.
           console.log(e);
         });
 
+      //Shows selected book.
       function getBook(e) {
         e.preventDefault();
         let self = this;
         let isbn = self.innerText;
+        //console.log(isbn);
         const params = {
-          bibkeys: `ISBN:${isbns.json(",")}`,
+          bibkeys: `ISBN:${isbn}`,
           format: "json",
           jscmd: "details",
         };
@@ -94,6 +97,8 @@ Description: The WhatABook Part2 App.
           .get("https://openlibrary.org/api/books", params)
           .then((res) => {
             console.log(res);
+            document.getElementById("card-for-result").style.display = "block";
+            document.getElementById("result-title").innerHTML = "Selected Book";
             document.getElementById("selectedBook").innerHTML = buildHtmlString(
               res,
               "ul"
@@ -104,16 +109,17 @@ Description: The WhatABook Part2 App.
           });
       }
 
+      //Builds inner HTML.
       function buildHtmlString(res, format) {
         let tableString =
           '<table id = "bookTable"><tr><th>ISBN</th><th>Title</th><th>Description</th><th>Pages</th><th>Authors</th></tr>';
         let ulString = "";
         for (let key in res) {
-          ulString = ulString + '<ul style = "list style-type: none">';
-          if (res.hasOwnProperty[key]) {
+          ulString = ulString + '<ul style = "list-style-type:none">';
+          if (res.hasOwnProperty(key)) {
             let authors = [];
             if (res[key].details.authors) {
-              authors = res[key].authors.details.map(function (author) {
+              authors = res[key].details.authors.map(function (author) {
                 return author.name;
               });
             }
@@ -130,6 +136,7 @@ Description: The WhatABook Part2 App.
                 : "N/A",
               authors: authors.join(","),
             };
+
             ulString =
               ulString +
               `<li><b>ISBN: </b>${book.isbn}</li><li><b>Title: </b>${book.title}</li><li><b>Description: </b>${book.description}</li><li><b>Pages: </b>${book.pages}</li><li><b>Authors: </b>${book.authors}</li>`;
@@ -138,16 +145,21 @@ Description: The WhatABook Part2 App.
               `<tr><td data-value="ISBN"><a href="#" class="isbn-link">${book.isbn}</a></td><td data-value="Title">${book.title}</td><td data-value="Description">${book.description}</td><td data-value="Pages">${book.pages}</td><td data-value="Authors">${book.authors}</td></tr>`;
           }
         }
+        ulString = ulString + "</ul>";
         tableString = tableString + "</table>";
-        if(format == 'table') {return tableString};
-        if(format == 'ul') {return ulString};
+
+        //console.log(tableString);
+        //console.log(ulString);
+
+        if (format == "table") {
+          return tableString;
+        }
+        if (format == "ul") {
+          return ulString;
+        }
       }
 
-    
-
-
       //Handle a click on ISBN.
-
 
       function addIsbnClickEvents() {
         let viewButtons = document.querySelectorAll(
@@ -157,8 +169,6 @@ Description: The WhatABook Part2 App.
           viewButtons[index].addEventListener("click", getBook);
         }
       }
-
-
     </script>
   </body>
 </html>
