@@ -1,0 +1,164 @@
+<!--
+============================================
+Title: kustova-whatabook1.html
+Author: Oksana Kustova
+Date: 10/3/2021
+Description: The WhatABook Part2 App.
+===========================================
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>WEB 330 – Enterprise JavaScript II</title>
+    <link rel="stylesheet" href="../theme.css" type="text/css" />
+    <link rel="stylesheet" href="../site.css" type="text/css" />
+
+    <script src="../theme.js"></script>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="main-container">
+      <h1 class="app-header">Welcome to the WhatABook, Part1 App!</h1>
+      <!-- Card with an select field. -->
+      <div class="card">
+        <div class="card-title">Book Listing</div>
+
+        <div class="card-content" id="bookList"></div>
+      </div>
+
+      <a href="../index.html" class="return-home">Return</a>
+
+      <!-- Card with a result. -->
+      <div class="card assign-container" id="card-for-result">
+        <div class="card-title" id="result-title"></div>
+
+        <div id="selectedBook" class="assign-results-text card-content"></div>
+      </div>
+    </div>
+
+    <!-- Calculate order summary and write a result into an HTML <div> element by id. -->
+    <script type="module">
+      // Set the HTML body to the user's selected theme. If one has not been selected, set the theme to light-theme
+      setSelectedTheme();
+
+      //Hide a card for the result/
+      document.getElementById("card-for-result").style.display = "none";
+
+      import { HttpClient } from "./http-client.js";
+      let http = new HttpClient();
+      const isbns = [
+        "9780345339681",
+        "9780261103571",
+        "9780593099322",
+        "9780261102361",
+        "9780261102378",
+        "9780590302715",
+        "9780316769532",
+        "9780743273565",
+        "9780590405959",
+      ];
+      const params = {
+        bibkeys: `ISBN:${isbns.join(",")}`,
+        format: "json",
+        jscmd: "details",
+      };
+      http
+        .get("https://openlibrary.org/api/books", params)
+        .then((res) => {
+          console.log(res);
+          document.getElementById("bookListing").innerHTML = buildHtmlString(
+            res,
+            "table"
+          );
+          addIsbnClickEvents();
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+
+      function getBook(e) {
+        e.preventDefault();
+        let self = this;
+        let isbn = self.innerText;
+        const params = {
+          bibkeys: `ISBN:${isbns.json(",")}`,
+          format: "json",
+          jscmd: "details",
+        };
+        http
+          .get("https://openlibrary.org/api/books", params)
+          .then((res) => {
+            console.log(res);
+            document.getElementById("selectedBook").innerHTML = buildHtmlString(
+              res,
+              "ul"
+            );
+          })
+          .catch((e) => {
+            console.log(e);
+          });
+      }
+
+      function buildHtmlString(res, format) {
+        let tableString =
+          '<table id = "bookTable"><tr><th>ISBN</th><th>Title</th><th>Description</th><th>Pages</th><th>Authors</th></tr>';
+        let ulString = "";
+        for (let key in res) {
+          ulString = ulString + '<ul style = "list style-type: none">';
+          if (res.hasOwnProperty[key]) {
+            let authors = [];
+            if (res[key].details.authors) {
+              authors = res[key].authors.details.map(function (author) {
+                return author.name;
+              });
+            }
+            let book = {
+              isbn: res[key].details.isbn_13
+                ? res[key].details.isbn_13
+                : res[key].details.isbn_10,
+              title: res[key].details.title,
+              description: res[key].details.subtitle
+                ? res[key].details.subtitle
+                : "N/A",
+              pages: res[key].details.number_of_pages
+                ? res[key].details.number_of_pages
+                : "N/A",
+              authors: authors.join(","),
+            };
+            ulString =
+              ulString +
+              `<li><b>ISBN: </b>${book.isbn}</li><li><b>Title: </b>${book.title}</li><li><b>Description: </b>${book.description}</li><li><b>Pages: </b>${book.pages}</li><li><b>Authors: </b>${book.authors}</li>`;
+            tableString =
+              tableString +
+              `<tr><td data-value="ISBN"><a href="#" class="isbn-link">${book.isbn}</a></td><td data-value="Title">${book.title}</td><td data-value="Description">${book.description}</td><td data-value="Pages">${book.pages}</td><td data-value="Authors">${book.authors}</td></tr>`;
+          }
+        }
+        tableString = tableString + "</table>";
+        if(format == 'table') {return tableString};
+        if(format == 'ul') {return ulString};
+      }
+
+    
+
+
+      //Handle a click on ISBN.
+
+
+      function addIsbnClickEvents() {
+        let viewButtons = document.querySelectorAll(
+          "#bookTable tbody .isbn-link"
+        );
+        for (let index = 0; index < viewButtons.length; index++) {
+          viewButtons[index].addEventListener("click", getBook);
+        }
+      }
+
+
+    </script>
+  </body>
+</html>
