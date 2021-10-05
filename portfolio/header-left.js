@@ -7,9 +7,13 @@ export class HeaderLeft extends HTMLElement {
       this.innerHTML = `
       <div>
   
-        <ul class="nav-list">
+        <ul class="nav-list left">
           <li>
-            <a href="index.html">Oksana Kustova</a>
+            <a href="index.html"><img
+            src="images/myLogo.png"
+            class="logo"
+            alt="logo Oksana Kustova"
+        /></a>
           </li>
         </ul>
   

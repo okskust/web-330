@@ -13,21 +13,22 @@ Description: The landing page.
     <title>Oksana Kustova | Web Developer</title>
     <link rel="stylesheet" href="style.css" type="text/css" />
     <link rel="stylesheet" href="resume.css" type="text/css" />
-    <style>
-      .grid1 {
-        display: grid;
-        grid-template-columns: 0fr 6fr 8fr 6fr;
-        grid-template-rows: auto auto auto auto auto auto auto;
-      }
-    </style>
+    <link
+      rel="stylesheet"
+      href="/font-awesome-4.7.0/css/font-awesome.min.css"
+    />
   </head>
 
   <body>
-    <div class="grid1">
+    <div class="grid0">
+      <div class="item-gold"></div>
       <header-component-left class="item1"></header-component-left>
       <header-component-right class="item5"></header-component-right>
-      <div class = "item80">
-          <button>Download resume</button>
+      <div class="item80">
+        <a href="/OksanaKustova_resume.pdf" download=""><button class="download">
+          Download resume <i class="fa fa-download"></i>
+          
+        </button></a>
       </div>
       <div class="container item90">
         <div class="header">
@@ -37,16 +38,16 @@ Description: The landing page.
           </div>
           <div class="contact-info">
             <span class="email">Email: </span>
-            <span class="email-val">okskust@gmail.com</span>
+            <span class="email-val">okustova@my365.bellevue.edu</span>
             <span class="separator"></span>
             <span class="phone">Phone: </span>
             <span class="phone-val">111-222-3333</span>
           </div>
 
           <div class="about">
-            <span class="position">Front-End Developer </span>
+            <span class="position">Web Developer </span>
             <span class="desc">
-              I am a front-end developer with more than 3 years of experience
+              I am a novice web developer with 1 year of experience
               writing html, css, and js. I'm motivated, result-focused and
               seeking a successful team-oriented company with opportunity to
               grow.
@@ -55,55 +56,26 @@ Description: The landing page.
         </div>
         <div class="details">
           <div class="section">
-            <div class="section__title">Experience</div>
-            <div class="section__list">
-              <div class="section__list-item">
-                <div class="left">
-                  <div class="name">KlowdBox</div>
-                  <div class="addr">Fresh Meadows NY</div>
-                  <div class="duration">Jan 2011 - Feb 2015</div>
-                </div>
-                <div class="right">
-                  <div class="name">Fr developer</div>
-                  <div class="desc">did This and that</div>
-                </div>
-              </div>
-              <div class="section__list-item">
-                <div class="left">
-                  <div class="name">Akount</div>
-                  <div class="addr">San Monica, CA</div>
-                  <div class="duration">Jan 2011 - Feb 2015</div>
-                </div>
-                <div class="right">
-                  <div class="name">Fr developer</div>
-                  <div class="desc">did This and that</div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="section">
             <div class="section__title">Education</div>
             <div class="section__list">
               <div class="section__list-item">
                 <div class="left">
-                  <div class="name">Sample Institute of technology</div>
-                  <div class="addr">San Fr, CA</div>
-                  <div class="duration">Jan 2011 - Feb 2015</div>
+                  <div class="name">Bellevue University</div>
+                  <div class="addr">Bellevue, Nebraska</div>
+                  <div class="duration">Jan 2021 - May 2022</div>
                 </div>
                 <div class="right">
-                  <div class="name">Fr developer</div>
-                  <div class="desc">did This and that</div>
+                  <div class="name">Web Development - BS</div>
                 </div>
               </div>
               <div class="section__list-item">
                 <div class="left">
-                  <div class="name">Akount</div>
-                  <div class="addr">San Monica, CA</div>
-                  <div class="duration">Jan 2011 - Feb 2015</div>
+                  <div class="name">THE STATE UNIVERSITY OF MANAGEMENT</div>
+                  <div class="addr">Moscow, Russia</div>
+                  <div class="duration">Sep 1995 - Jun 2000</div>
                 </div>
                 <div class="right">
-                  <div class="name">Fr developer</div>
-                  <div class="desc">did This and that</div>
+                  <div class="name">Economics - MS</div>
                 </div>
               </div>
             </div>
@@ -112,22 +84,25 @@ Description: The landing page.
             <div class="section__title">Projects</div>
             <div class="section__list">
               <div class="section__list-item">
-                <div class="name">DSP</div>
+                <div class="name">WEB 231 Landing Page</div>
                 <div class="text">
-                  I am a front-end developer with more than 3 years of
-                  experience writing html, css, and js. I'm motivated,
-                  result-focused and seeking a successful team-oriented company
-                  with opportunity to grow.
+                  Enterprise JavaScript I: assignments and projects
+                  demonstrating proficiency in HTTP, CSS and JavaScript.<a
+                    href="https://okskust.github.io/web-231/"
+                  >
+                    view project ›</a
+                  >
                 </div>
               </div>
 
               <div class="section__list-item">
-                <div class="name">DSP</div>
+                <div class="name">WEB 330 Landing Page</div>
                 <div class="text">
-                  I am a front-end developer with more than 3 years of
-                  experience writing html, css, and js. I'm motivated,
-                  result-focused and seeking a successful team-oriented company
-                  with opportunity to grow. <a href="/login">link</a>
+                  Enterprise JavaScript II: assignments and projects
+                  demonstrating proficiency in HTTP, CSS and JavaScript.
+                  <a href="https://okskust.github.io/web-330/">
+                    view project ›</a
+                  >
                 </div>
               </div>
             </div>
@@ -135,18 +110,21 @@ Description: The landing page.
           <div class="section">
             <div class="section__title">Skills</div>
             <div class="skills">
-              <div class="skills__item">
-                <div class="left"><div class="name">Javascript</div></div>
-              </div>
-            </div>
-            <div class="skills__item">
-              <div class="left"><div class="name">CSS</div></div>
+              <div class="left name skills__item">HTML</div>
+
+              <div class="left name skills__item">CSS</div>
+
+              <div class="left name skills__item">Javascript</div>
+
+              <div class="left name skills__item">Nodejs</div>
+
+              <div class="left name skills__item">Express</div>
             </div>
           </div>
           <div class="section">
             <div class="section__title">Interests</div>
             <div class="section__list">
-              <div class="section__list-item">Hiking</div>
+              <div class="section__list-item">Hiking, gardening</div>
             </div>
           </div>
         </div>

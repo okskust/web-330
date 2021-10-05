@@ -9,19 +9,11 @@ html {
 div {
   border: none;
 }
-.grid1,
-.item1,
-.item5,
-.item4 {
-  border: cadetblue solid 2px;
-}
-.item80 {
-    text-align: right;
-}
+
+
 
 body {
   min-height: 100%;
-
   font-size: 14px;
   line-height: 26px;
   padding-bottom: 50px;
