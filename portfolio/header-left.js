@@ -5,17 +5,17 @@ export class HeaderLeft extends HTMLElement {
   
     connectedCallback() {
       this.innerHTML = `
-      <div>
+      <div class = "nav-list-left">
   
-        <ul class="nav-list left">
-          <li>
+     
+        
             <a href="index.html"><img
             src="images/myLogo.png"
             class="logo"
             alt="logo Oksana Kustova"
         /></a>
-          </li>
-        </ul>
+        
+     
   
     </div>
           `;

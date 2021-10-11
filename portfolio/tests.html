@@ -12,22 +12,24 @@ Description: The landing page.
   <head>
     <title>Oksana Kustova | Web Developer</title>
     <link rel="stylesheet" href="style.css" type="text/css" />
-    <style>
-      .item1 {
-        grid-column-start: 1;
-        grid-column-end: 3;
-        grid-row-start: 2;
-        grid-row-end: 3;
-        padding: 0.8em 0em;
-      }
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;400&family=Ubuntu:ital,wght@0,300;0,400;0,500;1,300&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <script type="text/javascript" src="script.js"></script>
   </head>
 
   <body class="main">
-    <div class="with-gaps">
+    <div class="grid">
       <div class="item-gold"></div>
-      <header-component-left class="item1"></header-component-left>
-      <header-component-right class="item5"></header-component-right>
+      <header-component-left class="home"></header-component-left>
+      <header-component-right class="menu-right"></header-component-right>
       <h2 class="item80">API Unit Tests</h2>
       <div class="item81 card">
         <h3>API Unit Test</h3>
@@ -138,15 +140,17 @@ Description: The landing page.
         </p>
         <a href="#">Learn more</a>
       </div>
+
+      <div class="item-purpure"></div>
+      <footer-component class="footer"></footer-component>
     </div>
-    <footer-component class="item4"></footer-component>
     <script type="module">
-      import { Footer } from "./footer.js";
+      import { FooterMain } from "./footer-main.js";
       import { HeaderLeft } from "./header-left.js";
       import { HeaderRight } from "./header-right.js";
       customElements.define("header-component-left", HeaderLeft);
       customElements.define("header-component-right", HeaderRight);
-      customElements.define("footer-component", Footer);
+      customElements.define("footer-component", FooterMain);
     </script>
   </body>
 </html>

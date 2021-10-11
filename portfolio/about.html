@@ -12,19 +12,26 @@ Description: The landing page.
   <head>
     <title>Oksana Kustova | Web Developer</title>
     <link rel="stylesheet" href="style.css" type="text/css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;400&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;400&family=Ubuntu:ital,wght@0,300;0,400;0,500;1,300&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <script type="text/javascript" src="script.js"></script>  
   </head>
 
   <body class="main">
-    <div class="grid0">
+    <div class="grid">
       <div class="item-gold"></div>
-      <header-component-left class="item1"></header-component-left>
-      <header-component-right class="item5"></header-component-right>
-      <div class="item61">
-        <h2>About me</h2>
+      <header-component-left class="home"></header-component-left>
+      <header-component-right class="menu-right"></header-component-right>
+      <div class="about1">
+        <h2>About</h2>
         Oksana Kustova is a second-degree student at Bellevue University where
         she is majoring in Web Development. She already has a Master's Degree in
         Economics and has worked in this field for many years, holding a
@@ -40,31 +47,31 @@ Description: The landing page.
       </div>
       <img
         src="images/20171202_141330.jpg"
-        class="item62"
+        class="photo1"
         alt="My photo"
       />
       <img
         src="images/20190810_131802.jpg"
-        class="item63"
+        class="photo2"
         alt="My photo"
       />
-      <div class="item64">
+      <div class="about2">
         Mastering a new profession, Oksana wants to be an example for her three
         children, showing them that it is interesting to learn something new and
         they must make efforts to make their dream come true. In her free time,
         which is not so much, Oksana goes hiking with her family and does
         houseplants.
       </div>
-
-      <footer-component class="item4"></footer-component>
+      <div class = "item-purpure"></div>
+      <footer-component class="footer"></footer-component>
     </div>
     <script type="module">
-      import { Footer } from "./footer.js";
+      import { FooterMain } from "./footer-main.js";
       import { HeaderLeft } from "./header-left.js";
       import { HeaderRight } from "./header-right.js";
       customElements.define("header-component-left", HeaderLeft);
       customElements.define("header-component-right", HeaderRight);
-      customElements.define("footer-component", Footer);
+      customElements.define("footer-component", FooterMain);
     </script>
   </body>
 </html>

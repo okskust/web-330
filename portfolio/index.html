@@ -15,24 +15,57 @@ Description: The landing page.
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;400&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;400&family=Ubuntu:ital,wght@0,300;0,400;0,500;1,300&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <script type="text/javascript" src="script.js"></script>  
   </head>
   <body class="main">
-    <div class="grid0">
+    <div class="grid">
       <div class="item-gold"></div>
-      <header-component-left class="item1"></header-component-left>
-      <header-component-right class="item5"></header-component-right>
-      <div class="item2">
-        <img src="images/22.png" class="photo" alt="photo Oksana Kustova" />
+      <header-component-left class="home"></header-component-left>
+      <header-component-right class="menu-right"></header-component-right>
+
+      <div class="main-photo">
+        <img
+          src="images/myPhoto.png"
+          class="photo"
+          alt="photo Oksana Kustova"
+        />
       </div>
-      <div class="item3">
-        Hi Everyone!<br />My name is Oksana Kustova.<br />I'm a Web Developer based in
-        NYC.<br />What I admire most about programming is that writing code can
-        make people's lives easier and free up time for the things they love.
+      <div class="hello-text">
+        Hi Everyone!<br />My name is Oksana Kustova.<br />I'm a Web Developer
+        based in NYC.<br />What I admire most about programming is that writing
+        code can make people's lives easier and free up time for the things they
+        love.
+        <div class = "contacts">
+          <a
+            href="https://www.linkedin.com/in/oksana-kustova-7a0834ab/"
+            class="contact"
+            ><i class="fa fa-linkedin-square"></i
+          ></a>
+          <a
+          href="https://github.com/okskust"
+          class="contact"
+          ><i class="fa fa-github-square"></i
+        ></a>
+          <a href="mailto:okustova@my365.bellevue.edu" class="contact"
+            ><i class="fa fa-envelope"></i
+          ></a>
+          <a href="https://www.instagram.com/oxanakustova/" class="contact"
+            ><i class="fa fa-instagram"></i
+          ></a>
+          <a href="https://www.facebook.com/oxana.kustova.5" class="contact"
+          ><i class="	fa fa-facebook-square"></i
+        ></a>
+        </div>
       </div>
-      <footer-component class="item4"></footer-component>
+<div class = "item-purpure"></div>
+      <footer-component class="footer"></footer-component>
     </div>
     <script type="module">
       import { FooterMain } from "./footer-main.js";

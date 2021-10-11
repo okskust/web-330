@@ -13,24 +13,31 @@ Description: The landing page.
     <title>Oksana Kustova | Web Developer</title>
     <link rel="stylesheet" href="style.css" type="text/css" />
     <link rel="stylesheet" href="resume.css" type="text/css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;400&family=Ubuntu:ital,wght@0,300;0,400;0,500;1,300&display=swap"
+      rel="stylesheet"
+    />
     <link
       rel="stylesheet"
-      href="/font-awesome-4.7.0/css/font-awesome.min.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
+    <script type="text/javascript" src="script.js"></script>  
   </head>
 
-  <body>
-    <div class="grid0">
+  <body class="main">
+    <div class="grid">
       <div class="item-gold"></div>
-      <header-component-left class="item1"></header-component-left>
-      <header-component-right class="item5"></header-component-right>
-      <div class="item80">
-        <a href="/OksanaKustova_resume.pdf" download=""><button class="download">
-          Download resume <i class="fa fa-download"></i>
-          
-        </button></a>
+      <header-component-left class="home"></header-component-left>
+      <header-component-right class="menu-right"></header-component-right>
+      <div class="download">
+        <a href="./OksanaKustova_resume.pdf" download=""
+          ><button class="download">
+            Download resume <i class="fa fa-download"></i></button
+        ></a>
       </div>
-      <div class="container item90">
+      <div class="container resume">
         <div class="header">
           <div class="full-name">
             <span class="first-name">Oksana</span>
@@ -47,10 +54,9 @@ Description: The landing page.
           <div class="about">
             <span class="position">Web Developer </span>
             <span class="desc">
-              I am a novice web developer with 1 year of experience
-              writing html, css, and js. I'm motivated, result-focused and
-              seeking a successful team-oriented company with opportunity to
-              grow.
+              I am a novice web developer with 1 year of experience writing
+              html, css, and js. I'm motivated, result-focused and seeking a
+              successful team-oriented company with opportunity to grow.
             </span>
           </div>
         </div>
@@ -87,7 +93,7 @@ Description: The landing page.
                 <div class="name">WEB 231 Landing Page</div>
                 <div class="text">
                   Enterprise JavaScript I: assignments and projects
-                  demonstrating proficiency in HTTP, CSS and JavaScript.<a
+                  demonstrating proficiency in HTTP, CSS and JavaScript.<a class="linkResume"
                     href="https://okskust.github.io/web-231/"
                   >
                     view project ›</a
@@ -100,7 +106,7 @@ Description: The landing page.
                 <div class="text">
                   Enterprise JavaScript II: assignments and projects
                   demonstrating proficiency in HTTP, CSS and JavaScript.
-                  <a href="https://okskust.github.io/web-330/">
+                  <a class="linkResume" href="https://okskust.github.io/web-330/">
                     view project ›</a
                   >
                 </div>
@@ -130,15 +136,16 @@ Description: The landing page.
         </div>
       </div>
 
-      <footer-component class="item4"></footer-component>
+      <div class="item-purpure"></div>
+      <footer-component class="footer"></footer-component>
     </div>
     <script type="module">
-      import { Footer } from "./footer.js";
+      import { FooterMain } from "./footer-main.js";
       import { HeaderLeft } from "./header-left.js";
       import { HeaderRight } from "./header-right.js";
       customElements.define("header-component-left", HeaderLeft);
       customElements.define("header-component-right", HeaderRight);
-      customElements.define("footer-component", Footer);
+      customElements.define("footer-component", FooterMain);
     </script>
   </body>
 </html>
