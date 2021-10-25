@@ -8,7 +8,7 @@ export class HeaderRight extends HTMLElement {
       
              <div class="nav-list">
           
-            <a href="about.html">About</a>
+            <a href="/web-330/portfolio/about.html">About</a>
         
           <div class="dropdown">  
           <button class="dropbtn" onclick="myFunction()">Projects
@@ -16,12 +16,12 @@ export class HeaderRight extends HTMLElement {
         </button>
           
           <div class="dropdown-content" id="myDropdown">
-          <a href="projects.html">My Projects</a>
-          <a href="diagrams.html">Database Diagrams</a>
-          <a href="tests.html">API Unit Tests</a>
+          <a href="/web-330/portfolio/projects.html">My Projects</a>
+          <a href="/web-330/portfolio//web-335/kustova-diagrams.html">Diagrams</a>
+          <a href="/web-330/portfolio/tests.html">API Unit Tests</a>
         </div></div>
             
-            <a href="resume.html">Resume</a>
+            <a href="/web-330/portfolio/resume.html">Resume</a>
         
         </div>
     

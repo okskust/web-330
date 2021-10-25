@@ -9,8 +9,8 @@ export class HeaderLeft extends HTMLElement {
   
      
         
-            <a href="index.html"><img
-            src="images/myLogo.png"
+            <a href="/web-330/portfolio/index.html"><img
+            src="/web-330/portfolio/images/myLogo.png"
             class="logo"
             alt="logo Oksana Kustova"
         /></a>

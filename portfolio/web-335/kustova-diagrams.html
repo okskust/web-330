@@ -1,0 +1,185 @@
+<!--
+============================================
+Title: kustova-diagrams.html
+Author: Oksana Kustova
+Date: 10/23/2021
+Description: The diagrams page.
+===========================================
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Oksana Kustova | Web Developer</title>
+    <link rel="stylesheet" href="/web-330/portfolio/style.css" type="text/css" />
+    <link rel="stylesheet" href="/web-330/portfolio/web-335/kustova-diagram.css" type="text/css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;400&family=Ubuntu:ital,wght@0,300;0,400;0,500;1,300&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <script type="text/javascript" src="/web-330/portfolio/script.js"></script>
+  </head>
+
+  <body class="main">
+    <div class="grid">
+      <div class="item-gold"></div>
+      <header-component-left class="home"></header-component-left>
+      <header-component-right class="menu-right"></header-component-right>
+      <h2 class="item80">Database Diagrams</h2>
+
+
+      <div class="carousel">
+        <div class="carousel-inner">
+          <input
+            class="carousel-open"
+            type="radio"
+            id="carousel-1"
+            name="carousel"
+            hidden=""
+            checked="checked"
+          />
+          <div class="carousel-item">
+            <figure class="big-photo">
+              <figcaption class="big-photo">The ORD data structure</figcaption>
+              <img
+                src="/web-330/portfolio/nosql-data-diagrams/ORDdataStructure.jpg"
+                alt="The ORD data structure"
+              />
+            </figure>
+          </div>
+
+          <input
+            class="carousel-open"
+            type="radio"
+            id="carousel-2"
+            name="carousel"
+            hidden=""
+          />
+          <div class="carousel-item">
+            <figure class="big-photo">
+              <figcaption class="big-photo">The NoSQL data structure</figcaption>
+              <img
+                src="/web-330/portfolio/nosql-data-diagrams/NoSQLDataStructure.jpg"
+                alt="The NoSQL data structure"
+              />
+            </figure>
+          </div>
+
+          <input
+            class="carousel-open"
+            type="radio"
+            id="carousel-3"
+            name="carousel"
+            hidden=""
+          />
+          <div class="carousel-item">
+            <figure class="big-photo">
+              <figcaption class="big-photo">Diagram 3</figcaption>
+              <img
+                src="https://via.placeholder.com/550"
+                alt="Diagram"
+              />
+            </figure>
+          </div>
+
+          <input
+            class="carousel-open"
+            type="radio"
+            id="carousel-4"
+            name="carousel"
+            hidden=""
+          />
+          <div class="carousel-item">
+            <figure class="big-photo">
+              <figcaption class="big-photo">Diagram 4</figcaption>
+              <img src="https://via.placeholder.com/550" alt="Diagram" />
+            </figure>
+          </div>
+
+          <input
+            class="carousel-open"
+            type="radio"
+            id="carousel-5"
+            name="carousel"
+            hidden=""
+          />
+          <div class="carousel-item">
+            <figure class="big-photo">
+              <figcaption class="big-photo">Diagram 5</figcaption>
+              <img src="https://via.placeholder.com/550" alt="Diagram" />
+            </figure>
+          </div>
+
+          <label for="carousel-5" class="carousel-control prev control-1"
+            >‹</label
+          >
+          <label for="carousel-4" class="carousel-control next control-3"
+            >›</label
+          >
+          <label for="carousel-3" class="carousel-control prev control-4"
+            >‹</label
+          >
+          <label for="carousel-2" class="carousel-control next control-1"
+            >›</label
+          >
+          <label for="carousel-1" class="carousel-control prev control-2"
+            >‹</label
+          >
+
+          <label for="carousel-5" class="carousel-control next control-4"
+            >›</label
+          >
+          <label for="carousel-4" class="carousel-control prev control-5"
+            >‹</label
+          >
+          <label for="carousel-3" class="carousel-control next control-2"
+            >›</label
+          >
+          <label for="carousel-2" class="carousel-control prev control-3"
+            >‹</label
+          >
+          <label for="carousel-1" class="carousel-control next control-5"
+            >›</label
+          >
+
+          <ol class="carousel-indicators">
+            <li>
+              <label for="carousel-1" class="carousel-bullet">•</label>
+            </li>
+            <li>
+              <label for="carousel-2" class="carousel-bullet">•</label>
+            </li>
+            <li>
+              <label for="carousel-3" class="carousel-bullet">•</label>
+            </li>
+            <li>
+              <label for="carousel-4" class="carousel-bullet">•</label>
+            </li>
+            <li>
+              <label for="carousel-5" class="carousel-bullet">•</label>
+            </li>
+          </ol>
+        </div>
+      </div>
+
+
+
+      <div class="item-purpure"></div>
+      <footer-component class="footer"></footer-component>
+    </div>
+    <script type="module">
+      import { FooterMain } from "/web-330/portfolio/footer-main.js";
+      import { HeaderLeft } from "/web-330/portfolio/header-left.js";
+      import { HeaderRight } from "/web-330/portfolio/header-right.js";
+      customElements.define("header-component-left", HeaderLeft);
+      customElements.define("header-component-right", HeaderRight);
+      customElements.define("footer-component", FooterMain);
+    </script>
+  </body>
+</html>
