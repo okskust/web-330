@@ -11,8 +11,16 @@ Description: The diagrams page.
 <html lang="en">
   <head>
     <title>Oksana Kustova | Web Developer</title>
-    <link rel="stylesheet" href="/web-330/portfolio/style.css" type="text/css" />
-    <link rel="stylesheet" href="/web-330/portfolio/web-335/kustova-diagram.css" type="text/css" />
+    <link
+      rel="stylesheet"
+      href="/web-330/portfolio/style.css"
+      type="text/css"
+    />
+    <link
+      rel="stylesheet"
+      href="/web-330/portfolio/web-335/kustova-diagram.css"
+      type="text/css"
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -23,6 +31,24 @@ Description: The diagrams page.
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/web-330/portfolio/images/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/web-330/portfolio/images/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/web-330/portfolio/images/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/web-330/portfolio/images/site.webmanifest" />
     <script type="text/javascript" src="/web-330/portfolio/script.js"></script>
   </head>
 
@@ -31,8 +57,10 @@ Description: The diagrams page.
       <div class="item-gold"></div>
       <header-component-left class="home"></header-component-left>
       <header-component-right class="menu-right"></header-component-right>
-      <h2 class="item80">Database Diagrams</h2>
-
+      <div class="item80">
+        <h2>Database Diagrams</h2>
+        <a class="back" onclick="javascript:history.back(); return false;">Back</a>
+      </div>
 
       <div class="carousel">
         <div class="carousel-inner">
@@ -63,7 +91,9 @@ Description: The diagrams page.
           />
           <div class="carousel-item">
             <figure class="big-photo">
-              <figcaption class="big-photo">The NoSQL data structure</figcaption>
+              <figcaption class="big-photo">
+                The NoSQL data structure
+              </figcaption>
               <img
                 src="/web-330/portfolio/nosql-data-diagrams/NoSQLDataStructure.jpg"
                 alt="The NoSQL data structure"
@@ -80,9 +110,9 @@ Description: The diagrams page.
           />
           <div class="carousel-item">
             <figure class="big-photo">
-              <figcaption class="big-photo">Diagram 3</figcaption>
+              <figcaption class="big-photo">NodeShopper ORD</figcaption>
               <img
-                src="https://via.placeholder.com/550"
+                src="/web-330/portfolio/nosql-data-diagrams/ORDdataStructure2.2.jpg"
                 alt="Diagram"
               />
             </figure>
@@ -97,8 +127,11 @@ Description: The diagrams page.
           />
           <div class="carousel-item">
             <figure class="big-photo">
-              <figcaption class="big-photo">Diagram 4</figcaption>
-              <img src="https://via.placeholder.com/550" alt="Diagram" />
+              <figcaption class="big-photo">NodeShopper NoSQL</figcaption>
+              <img
+                src="/web-330/portfolio/nosql-data-diagrams/NoSQLDataStructure2.2.jpg"
+                alt="Diagram"
+              />
             </figure>
           </div>
 
@@ -111,12 +144,35 @@ Description: The diagrams page.
           />
           <div class="carousel-item">
             <figure class="big-photo">
-              <figcaption class="big-photo">Diagram 5</figcaption>
-              <img src="https://via.placeholder.com/550" alt="Diagram" />
+              <figcaption class="big-photo">NodeTech ORD</figcaption>
+              <img
+                src="/web-330/portfolio/nosql-data-diagrams/ORDdataStructure2.3.jpg"
+                alt="Diagram"
+              />
             </figure>
           </div>
 
-          <label for="carousel-5" class="carousel-control prev control-1"
+          <input
+            class="carousel-open"
+            type="radio"
+            id="carousel-6"
+            name="carousel"
+            hidden=""
+          />
+          <div class="carousel-item">
+            <figure class="big-photo">
+              <figcaption class="big-photo">NodeTech NoSQL</figcaption>
+              <img
+                src="/web-330/portfolio/nosql-data-diagrams/NoSQLDataStructure2.3.jpg"
+                alt="Diagram"
+              />
+            </figure>
+          </div>
+
+          <label for="carousel-6" class="carousel-control prev control-1"
+            >‹</label
+          >
+          <label for="carousel-5" class="carousel-control prev control-6"
             >‹</label
           >
           <label for="carousel-4" class="carousel-control next control-3"
@@ -128,14 +184,17 @@ Description: The diagrams page.
           <label for="carousel-2" class="carousel-control next control-1"
             >›</label
           >
-          <label for="carousel-1" class="carousel-control prev control-2"
-            >‹</label
-          >
 
+          <label for="carousel-6" class="carousel-control next control-5"
+            >›</label
+          >
           <label for="carousel-5" class="carousel-control next control-4"
             >›</label
           >
           <label for="carousel-4" class="carousel-control prev control-5"
+            >‹</label
+          >
+          <label for="carousel-1" class="carousel-control prev control-2"
             >‹</label
           >
           <label for="carousel-3" class="carousel-control next control-2"
@@ -144,7 +203,7 @@ Description: The diagrams page.
           <label for="carousel-2" class="carousel-control prev control-3"
             >‹</label
           >
-          <label for="carousel-1" class="carousel-control next control-5"
+          <label for="carousel-1" class="carousel-control next control-6"
             >›</label
           >
 
@@ -164,11 +223,12 @@ Description: The diagrams page.
             <li>
               <label for="carousel-5" class="carousel-bullet">•</label>
             </li>
+            <li>
+              <label for="carousel-6" class="carousel-bullet">•</label>
+            </li>
           </ol>
         </div>
       </div>
-
-
 
       <div class="item-purpure"></div>
       <footer-component class="footer"></footer-component>
