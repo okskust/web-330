@@ -46,7 +46,6 @@ figcaption.big-photo {
   opacity: 0;
 }
 
-
 .carousel-item img {
   display: block;
   width: auto;
@@ -92,7 +91,12 @@ figcaption.big-photo {
 #carousel-3:checked ~ .control-3,
 #carousel-4:checked ~ .control-4,
 #carousel-5:checked ~ .control-5,
-#carousel-6:checked ~ .control-6 {
+#carousel-6:checked ~ .control-6,
+#carousel-7:checked ~ .control-7,
+#carousel-8:checked ~ .control-8,
+#carousel-9:checked ~ .control-9,
+#carousel-10:checked ~ .control-10,
+#carousel-11:checked ~ .control-11 {
   display: block;
 }
 
@@ -153,6 +157,31 @@ figcaption.big-photo {
   ~ .control-6
   ~ .carousel-indicators
   li:nth-child(6)
+  .carousel-bullet,
+#carousel-7:checked
+  ~ .control-7
+  ~ .carousel-indicators
+  li:nth-child(7)
+  .carousel-bullet,
+#carousel-8:checked
+  ~ .control-8
+  ~ .carousel-indicators
+  li:nth-child(8)
+  .carousel-bullet,
+#carousel-9:checked
+  ~ .control-9
+  ~ .carousel-indicators
+  li:nth-child(9)
+  .carousel-bullet,
+#carousel-10:checked
+  ~ .control-10
+  ~ .carousel-indicators
+  li:nth-child(10)
+  .carousel-bullet,
+#carousel-11:checked
+  ~ .control-11
+  ~ .carousel-indicators
+  li:nth-child(11)
   .carousel-bullet {
-  color:  #cca545;
+  color: #cca545;
 }
