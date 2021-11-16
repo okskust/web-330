@@ -327,3 +327,12 @@ div.card > a {
   grid-row-start: 3;
   grid-row-end: 4;
 }
+
+img.test-imgs {
+  width: 100%;
+  transition: 1s;
+}
+img.test-imgs:hover {
+  transform: scale(2);
+ }
+
