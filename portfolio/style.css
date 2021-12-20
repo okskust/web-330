@@ -305,6 +305,18 @@ div.card > a {
   grid-row-start: 6;
   grid-row-end: 7;
 }
+.item90 {
+  grid-column-start: 2;
+  grid-column-end: 4;
+  grid-row-start: 7;
+  grid-row-end: 8;
+}
+.item91 {
+  grid-column-start: 4;
+  grid-column-end: 6;
+  grid-row-start: 7;
+  grid-row-end: 8;
+}
 
 .item80 {
   grid-column-start: 2;
