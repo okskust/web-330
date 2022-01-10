@@ -19,6 +19,7 @@ export class HeaderRight extends HTMLElement {
           <a href="/web-330/portfolio/projects.html">My Projects</a>
           <a href="/web-330/portfolio//web-335/kustova-diagrams.html">Diagrams</a>
           <a href="/web-330/portfolio/tests.html">API Unit Tests</a>
+          <a href="/web-330/portfolio/web-430/devops-presentations.html">DevOps</a>
         </div></div>
             
             <a href="/web-330/portfolio/resume.html">Resume</a>

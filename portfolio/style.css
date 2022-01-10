@@ -347,4 +347,17 @@ img.test-imgs {
 img.test-imgs:hover {
   transform: scale(2);
  }
-
+ img.presentation-imgs {
+  width: 100%;
+}
+.presentation-item {
+  position: relative;
+  box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.64);
+  margin: 6vh 6vh 6vh 6vh;
+  padding: 6vh 6vh 6vh 6vh;
+  grid-column-start: 2;
+  grid-column-end: 8;
+  grid-row-start: 4;
+  grid-row-end: 7;
+  text-align: center;
+}
