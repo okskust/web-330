@@ -299,7 +299,7 @@ div.card > a {
   grid-row-start: 6;
   grid-row-end: 7;
 }
-.item881 {
+.item92 {
   grid-column-start: 6;
   grid-column-end: 8;
   grid-row-start: 6;
@@ -323,12 +323,7 @@ div.card > a {
   grid-row-start: 7;
   grid-row-end: 8;
 }
-.item92 {
-  grid-column-start: 6;
-  grid-column-end: 8;
-  grid-row-start: 7;
-  grid-row-end: 8;
-}
+
 
 .item80 {
   grid-column-start: 2;
